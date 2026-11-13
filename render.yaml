@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: zygy-voice-aizzv
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: EXT_PATH
+        value: "2"
+      - key: TEXT_MODEL
+        value: "gemini-3.6-flash"
+      - key: TTS_MODEL
+        value: "gemini-3.8-flash-tts"
+      - key: EXTENSIONS
+        value: "[{\"p\":\"2\",\"m\":\"1\",\"g\":\"אווו הנה האפס חזר לבלבל לי את המוח!! יאללה יש לך כמה שניות איתי!!\",\"x\":\"Based on everything you know about me, roast me and don't hold back. Write it in Hebrew slang, just like this, but with plenty of swear words that are funny and sharp, not vulgar or offensive.\"}]"
+      - key: MAX_WORDS
+        value: "300"
+      - key: EXTRA_INSTRUCTION
+        value: "חייא הוא המפתח גאון מאד!! הוא המפתח שלך אנחנו בשיחת טלפון על ידי שרות שחייא בנה"
+      - key: GEMINI_API_KEYS
+        sync: false
+      - key: GEMINI_TTS_KEYS
+        sync: false
+      - key: YEMOT_TOKEN
+        sync: false
